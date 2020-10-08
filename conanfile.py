@@ -4,10 +4,10 @@ from conans import ConanFile, CMake, tools
 
 class TinyplyConan(ConanFile):
     name = "tinyply"
-    description = "Poly2Tri is a sweepline constrained Delaunay Polygon Triangulation Library."
+    description = "C++11 ply 3d mesh format importer & exporter."
     license = ["Unlicense", "BSD 2-Clause"]
-    topics = ("conan", "poly2tri", "triangulation", "delaunay", "polygon")
-    homepage = "https://github.com/greenm01/poly2tri"
+    topics = ("conan", "tinyply", "ply", "geometry", "mesh", "file-format")
+    homepage = "https://github.com/ddiakopoulos/tinyply"
     url = "https://github.com/conan-io/conan-center-index"
     exports_sources = "CMakeLists.txt"
     generators = "cmake"
