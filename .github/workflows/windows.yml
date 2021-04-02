@@ -7,10 +7,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { os: windows-2016, name: "VISUAL", version: "15", versionForConan: "15.0", buildType: "Debug"   }
-          - { os: windows-2016, name: "VISUAL", version: "15", versionForConan: "15.0", buildType: "Release" }
-          - { os: windows-2019, name: "VISUAL", version: "16", versionForConan: "16.0", buildType: "Debug"   }
-          - { os: windows-2019, name: "VISUAL", version: "16", versionForConan: "16.0", buildType: "Release" }
+          - { os: windows-2016, name: "VISUAL", version: "15", buildType: "Debug"   }
+          - { os: windows-2016, name: "VISUAL", version: "15", buildType: "Release" }
+          - { os: windows-2019, name: "VISUAL", version: "16", buildType: "Debug"   }
+          - { os: windows-2019, name: "VISUAL", version: "16", buildType: "Release" }
     name: ${{ matrix.config.name }} ${{ matrix.config.version }} ${{ matrix.config.buildType }}
     steps:
       - uses: actions/checkout@v2
@@ -25,5 +25,5 @@ jobs:
         env:
           CONAN_BUILD_TYPES: ${{ matrix.config.buildType }}
         run: |
-          SET CONAN_${{ matrix.config.name }}_VERSIONS="${{ matrix.config.versionForConan }}"
+          SET CONAN_${{ matrix.config.name }}_VERSIONS=${{ matrix.config.version }}
           python build.py
