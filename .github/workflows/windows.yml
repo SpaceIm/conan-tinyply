@@ -24,6 +24,6 @@ jobs:
       - name: Run
         env:
           CONAN_BUILD_TYPES: ${{ matrix.config.buildType }}
+          CONAN_VISUAL_VERSIONS: ${{ matrix.config.version }}
         run: |
-          SET CONAN_${{ matrix.config.name }}_VERSIONS=${{ matrix.config.version }}
           python build.py
